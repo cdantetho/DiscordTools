@@ -1,7 +1,7 @@
 # AntiDox.theme.css | [![Download][download-badge]][download-link]
 
 [download-badge]: https://img.shields.io/badge/Download-Theme-success
-[download-link]: https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/cdantetho/DiscordMods/master/Themes/AntiDox/AntiDox.theme.css
+[download-link]: https://betterdiscord.net/ghdl/?url=https://raw.githubusercontent.com/cdantetho/DiscordMods/master/Themes/AntiDox/AntiDox.theme.css
 
 Blurs personal information on Discord. Will un-blur information when you hover over it, so beware.
 
