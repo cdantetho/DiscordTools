@@ -1,4 +1,4 @@
-//META{"name":"AutoStartRichPresence","website":"https://github.com/Mega-Mewthree/BetterDiscordPlugins/tree/master/Plugins/AutoStartRichPresence","source":"https://github.com/Mega-Mewthree/BetterDiscordPlugins/blob/master/Plugins/AutoStartRichPresence/AutoStartRichPresence.plugin.js"}*//
+//META{"name":"CustomRichPresence","website":"https://github.com/cdantetho/DiscordTools/tree/master/Plugins/CustomRichPresence","source":"https://github.com/cdantetho/DiscordTools/tree/master/Plugins/CustomRichPresence"}*//
 
 /*
 -----BEGIN PGP SIGNED MESSAGE-----
@@ -8,7 +8,7 @@ Hash: SHA512
 /*
 MIT License
 
-Copyright (c) 2018-2019 Mega_Mewthree
+Copyright (c) 2018-2019 Mega_Mewthree & Dante
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -3687,21 +3687,21 @@ let RPClient;
   RPClient = makeClient;
 })();
 
-class AutoStartRichPresence {
+class CustomRichPresence {
   getName() {
-    return "AutoStartRichPresence";
+    return "CustomRichPresence";
   }
   getShortName() {
-    return "AutoStartRichPresence";
+    return "CustomRichPresence";
   }
   getDescription() {
-    return "Auto starts Rich Presence with configurable settings.\nRequired dependency: ZeresPluginLibrary\n\nMy Discord server: https://nebula.mooo.info/discord-invite\nDM me @Lucario ☉ ∝ x²#7902 or create an issue at https://github.com/Mega-Mewthree/BetterDiscordPlugins for support.";
+    return "Auto starts Rich Presence with configurable settings.\nRequired dependency: ZeresPluginLibrary\n\nDM me @Dante#3456 for support.";
   }
   getVersion() {
-    return "1.1.0";
+    return "1.0.0";
   }
   getAuthor() {
-    return "Mega_Mewthree"; //Current Discord account: @Lucario ☉ ∝ x²#7902 (438469378418409483)
+    return "Dante"; //Current Discord account: @Dante#3456 (199649725597745152)
   }
   constructor() {
     this.initialized = false;
@@ -3711,7 +3711,7 @@ class AutoStartRichPresence {
   unload() {}
   start() {
     if (typeof window.ZeresPluginLibrary === "undefined") {
-      BdApi.showToast('AutoStartRichPresence: Please install "ZeresPluginLibrary" and restart this plugin.', {type: "error"});
+      BdApi.showToast('CustomRichPresence: Please install "ZeresPluginLibrary" and restart this plugin.', {type: "error"});
     } else {
       this.initialize();
     }
@@ -3719,16 +3719,26 @@ class AutoStartRichPresence {
   initialize() {
     if (window.ZeresPluginLibrary.PluginUtilities && typeof window.ZeresPluginLibrary.PluginUtilities.checkForUpdate === "function") {
       try {
-        window.ZeresPluginLibrary.PluginUtilities.checkForUpdate(this.getName(), this.getVersion(), `https://raw.githubusercontent.com/Mega-Mewthree/BetterDiscordPlugins/master/Plugins/${this.getName()}/${this.getName()}.plugin.js`);
+        window.ZeresPluginLibrary.PluginUtilities.checkForUpdate(this.getName(), this.getVersion(), `https://raw.githubusercontent.com/cdantetho/DiscordTools/master/Plugins/CustomRichPresence/CustomRichPresence.plugin.js`);
       } catch (e) {
         console.error(e);
       }
     }
-    BdApi.showToast("AutoStartRichPresence has started!");
-    this.startTime = Date.now();
-    this.settings = BdApi.loadData("AutoStartRichPresence", "settings") || {};
+	BdApi.showToast("CustomRichPresence has started!");
+	
+
+	var currentTime = new Date();
+	var unixCurrentTime = currentTime.getTime();
+	console.log("Custom Time: " + currentTime + ". Unix Custom Time: " + unixCurrentTime);
+	this.startTime = unixCurrentTime;
+
+    this.settings = BdApi.loadData("CustomRichPresence", "settings") || {};
 	this.currentClientID = this.settings.clientID;
-	this.setStartTime = this.settings.customStartTime;
+
+	var customTimeDate = new Date(this.settings.customStartTime);
+	var unixCustomTimeDate = customTimeDate.getTime();
+	this.setStartTime = unixCustomTimeDate;
+	
     this.rpcClientInfo = {};
     this.discordSetActivityHandler = null;
     this.startRichPresence();
@@ -3738,11 +3748,11 @@ class AutoStartRichPresence {
     if (this.settings.experimentalRPCEventInjection) await this.experimental_stopRichPresence();
     await this.stopRichPresence();
     this.initialized = false;
-    BdApi.showToast("AutoStartRichPresence has stopped!");
+    BdApi.showToast("CustomRichPresence has stopped!");
   }
   getSettingsPanel() {
     if (!this.initialized) return;
-    this.settings = BdApi.loadData("AutoStartRichPresence", "settings") || {};
+    this.settings = BdApi.loadData("CustomRichPresence", "settings") || {};
     const panel = $("<form>").addClass("form").css("width", "100%");
 		if (this.initialized) this.generateSettings(panel);
 		return panel[0];
@@ -3765,8 +3775,7 @@ class AutoStartRichPresence {
       this.client.updatePresence({
       	details: this.settings.details || undefined,
       	state: this.settings.state || undefined,
-		// startTimestamp: this.settings.enableStartTime ? this.startTime / 1000 : undefined,
-		startTimestamp: this.settings.customStartTime ? this.setStartTime / 1000 : undefined,
+		startTimestamp: this.settings.enableStartTime ? this.startTime / 1000 : undefined || this.settings.customStartTime ? this.setStartTime / 1000 : undefined,
       	largeImageKey: this.settings.largeImageKey || undefined,
       	smallImageKey: this.settings.smallImageKey || undefined,
       	largeImageText: this.settings.largeImageText || undefined,
@@ -3785,8 +3794,7 @@ class AutoStartRichPresence {
       this.client.updatePresence({
       	details: this.settings.details || undefined,
       	state: this.settings.state || undefined,
-		// startTimestamp: this.settings.enableStartTime ? this.startTime / 1000 : undefined,
-		startTimestamp: this.settings.customStartTime ? this.setStartTime / 1000 : undefined,
+		startTimestamp: this.settings.enableStartTime ? this.startTime / 1000 : undefined || this.settings.customStartTime ? this.setStartTime / 1000 : undefined,
       	largeImageKey: this.settings.largeImageKey || undefined,
       	smallImageKey: this.settings.smallImageKey || undefined,
       	largeImageText: this.settings.largeImageText || undefined,
@@ -3869,12 +3877,11 @@ class AutoStartRichPresence {
     if (this.settings.state) {
       activityObject.args.activity.state = this.settings.state;
 	}
-	if (this.settings.customStartTime) {
+	if (this.settings.enableStartTime) {
+		activityObject.args.activity.timestamps.start = Math.floor(this.startTime / 1000) * 1000;
+	} else if (this.settings.customStartTime) {
 		activityObject.args.activity.timestamps.start = Math.floor(this.setStartTime / 1000) * 1000;
-	}
-    if (this.settings.enableStartTime) {
-      activityObject.args.activity.timestamps.start = Math.floor(this.startTime / 1000) * 1000;
-    }
+	} 
     if (this.settings.largeImageKey) {
       activityObject.args.activity.assets.large_image = this.settings.largeImageKey;
       if (this.settings.largeImageText) {
@@ -3890,7 +3897,7 @@ class AutoStartRichPresence {
     return activityObject;
   }
   updateSettings() {
-    BdApi.saveData("AutoStartRichPresence", "settings", this.settings);
+    BdApi.saveData("CustomRichPresence", "settings", this.settings);
   }
   generateSettings(panel) {
     new window.ZeresPluginLibrary.Settings.SettingGroup("Rich Presence Configuration", {collapsible: false, shown: true, callback: () => {this.updateSettings(); this.updateRichPresence();}}).appendTo(panel).append(
@@ -3901,8 +3908,8 @@ class AutoStartRichPresence {
       new window.ZeresPluginLibrary.Settings.Textbox("Large Image Text", "The text that appears when your large image is hovered over.", this.settings.largeImageText || "", val => {this.settings.largeImageText = val;}),
       new window.ZeresPluginLibrary.Settings.Textbox("Small Image Key", "The name of the asset for your small image.", this.settings.smallImageKey || "", val => {this.settings.smallImageKey = val;}),
 	  new window.ZeresPluginLibrary.Settings.Textbox("Small Image Text", "The text that appears when your small image is hovered over.", this.settings.smallImageText || "", val => {this.settings.smallImageText = val;}),
-	  new window.ZeresPluginLibrary.Settings.Textbox("Custom Elapsed Time", "This will show an elapsed time counter starting at the time you set. Do not use with Enable Automatic Time Tracking.", this.settings.customStartTime || "", val => {this.settings.customStartTime = val;}),
-      new window.ZeresPluginLibrary.Settings.Switch("Enable Automatic Time Tracking", "Displays the amount of time your Rich Presence has been enabled. Do not turn on if you've set a custom elapsed time.", this.settings.enableStartTime, val => {this.settings.enableStartTime = val;}),
+	  new window.ZeresPluginLibrary.Settings.Textbox("Custom Elapsed Time", "If you want a custom elapsed time, submit the start time you want to spoof in YYYY-MM-DDTHH:MM format (leave the T in the middle). 24h maximum, so ensure your spoofed start date/time is under 24h before your current time.", this.settings.customStartTime || "", val => {this.settings.customStartTime = val;}),
+      new window.ZeresPluginLibrary.Settings.Switch("Enable Session Time", "Displays the amount of time your Rich Presence has been enabled. This will overwrite your custom elapsed time, if you have set one.", this.settings.enableStartTime, val => {this.settings.enableStartTime = val;}),
       new window.ZeresPluginLibrary.Settings.Switch("Experimental: RPC Event Injection", "Bypasses the use of IPC and hopefully prevents other programs from using their own Rich Presences.", this.settings.experimentalRPCEventInjection, async val => {this.settings.experimentalRPCEventInjection = val; if (val) {await this.stopRichPresence(); await this.experimental_startRichPresence();} else {await this.experimental_stopRichPresence(); await this.startRichPresence();}})
 		);
     let div = document.createElement("div");
