@@ -1,0 +1,11 @@
+{
+	"enable": true,
+	"mainChannel": "main",
+	"category": false,
+	"userLimit": 10,
+	"channelPrefix": "🕑",
+	"givePermissions": true,
+	"giveChannelPermissions": false,
+	"configRole": "@everyone",
+	"userRoles": ["@everyone"]
+}
