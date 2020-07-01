@@ -37,3 +37,17 @@ Enjoy!
 }
 
 
+
+/* Blurs user profile notes */
+.note-3kmerW textarea {
+    filter: blur(5px);
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+/* Shows user profile notes onhover */
+.note-3kmerW textarea:focus {
+    filter: none;
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+
