@@ -8,6 +8,8 @@ I will be working to add more features to this as I see more potential to concea
 Enjoy!
 ###################################################################################################*/
 
+
+
 /* Blur account email */
 .userInfoViewing-16kqK3 .flexChild-faoVW3 > div:nth-child(2) .viewBody-2Qz-jg.selectable-2GY4I1 {
     filter: blur(5px);
@@ -17,7 +19,7 @@ Enjoy!
 /* Show account email onhover */
 .userInfoViewing-16kqK3 .flexChild-faoVW3 > div:nth-child(2) .viewBody-2Qz-jg.selectable-2GY4I1:hover {
     filter: none;
-    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+    transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
 
 
@@ -31,5 +33,7 @@ Enjoy!
 /* Show the 2FA Phone Number Preview when you hover over it. */
 .userSettingsSecurity-3IYeMF .children-rWhLdy > div:nth-child(2):hover{
     filter: none;
-    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+    transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
+
+
