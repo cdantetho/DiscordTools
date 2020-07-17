@@ -1,4 +1,4 @@
-//META{"name":"AntiDox","description":"Hides personal information on Discord. Will display elements when you hover over/click them, so beware. DM me if you need any assistance (Dante#3456) and check the Github source for updates or other projects.","author":"Dante","version":"1.2.0","source":"https://github.com/cdantetho/DiscordTools"}*//{}
+//META{"name":"AntiDox","description":"Hides personal information on Discord. Will display elements when you hover over/click them, so beware. DM me if you need any assistance (Dante#3456) and check the Github source for updates or other projects.","author":"Dante","version":"1.2.1","source":"https://github.com/cdantetho/DiscordTools"}*//{}
 
 /*###################################################################################################
 This theme was developed by Dante (@Dante#3456) with the goal of helping users NOT dox themselves whenever they open their settings while screensharing.
@@ -39,13 +39,13 @@ Enjoy!
 
 
 /* Blurs user profile notes */
-.note-3kmerW textarea {
+.note-3HfJZ5 textarea {
     filter: blur(5px);
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
 
 /* Shows user profile notes onhover */
-.note-3kmerW textarea:focus {
+.note-3HfJZ5 textarea:focus {
     filter: none;
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
