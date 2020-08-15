@@ -1,0 +1,53 @@
+//META{"name":"ShowVideoNameOverlay","description":"Always shows user's name overlay when viewing video call cameras.","author":"Dante","version":"1.0.0","source":"https://github.com/LINKTOREPOHERE"}*//{}
+
+/*###################################################################################################
+This theme was developed by Dante (@Dante#3456) to DESCHERE.
+
+#BA3B46 <-- Dante Red 
+
+Enjoy!
+###################################################################################################*/
+
+
+
+/* -------------------- CHAT WINDOW -------------------- */
+
+
+
+/* Set vc list talking circle color */
+
+.avatarSpeaking-3MqCHL {
+  -webkit-box-shadow: inset 0 0 0 2px #BA3B46,
+    inset 0 0 0 3px var(--background-secondary);
+  box-shadow: inset 0 0 0 2px #BA3B46,
+    inset 0 0 0 3px var(--background-secondary);
+}
+
+/* set video call view talking color*/
+.border-3dQmSY.speaking-WDn8Wm {
+  -webkit-box-shadow: inset 0 0 0 2px #BA3B46, inset 0 0 0 3px #000;
+  box-shadow: inset 0 0 0 2px #BA3B46, inset 0 0 0 3px #000;
+}
+
+/* --------------- */
+
+.overlay-1YJlCn, 
+.overlayTitle-8IcS01.idle-U-LIlZ {
+    opacity: 100;
+}
+
+
+
+
+
+
+/* -------------------- POP OUT WINDOW (can't be referenced or edited because BetterDiscord doesn't inject into pop-out window -------------------- */
+
+
+/* set video call view talking color*/
+.popout-3fRpdY.border-3dQmSY.speaking-WDn8Wm {
+    -webkit-box-shadow: inset 0 0 0 2px #BA3B46, inset 0 0 0 3px #000;
+    box-shadow: inset 0 0 0 2px #BA3B46, inset 0 0 0 3px #000;
+}
+
+/* ---------------------------------------- */
