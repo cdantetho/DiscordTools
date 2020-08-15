@@ -1,11 +1,15 @@
-# VoiceChatMoveAll.plugin.js | [![Download][download-badge]][download-link]
+# VoiceChatMoveAll.plugin.js | 
+
 
 <!-- 
+# VoiceChatMoveAll.plugin.js | [![Download][download-badge]][download-link]
+
 [download-badge]: https://img.shields.io/badge/Download-Theme-success
 [download-link]: https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/cdantetho/DiscordTools/master/Plugins/VoiceChatMoveAll/VoiceChatMoveAll.plugin.js
 
 ![GIF Example](https://i.imgur.com/OLbdKdP.png)
  -->
+
 
 **I'm currently in the process of updating Lighty's depracated VoiceChatMoveAll plugin.**
 
