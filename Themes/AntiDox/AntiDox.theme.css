@@ -11,13 +11,13 @@ Enjoy!
 
 
 /* Blur account email */
-.userInfoViewing-16kqK3 .flexChild-faoVW3 > div:nth-child(2) .viewBody-2Qz-jg.selectable-2GY4I1 {
+.children-rWhLdy .background-1QDuV2 .fieldList-21DyL8 .field-1HUseB .fieldSpacer-wgewFh {
     filter: blur(5px);
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
 
 /* Show account email onhover */
-.userInfoViewing-16kqK3 .flexChild-faoVW3 > div:nth-child(2) .viewBody-2Qz-jg.selectable-2GY4I1:hover {
+.children-rWhLdy .background-1QDuV2 .fieldList-21DyL8 .field-1HUseB .fieldSpacer-wgewFh {
     filter: none;
     transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
