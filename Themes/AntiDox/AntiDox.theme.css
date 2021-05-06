@@ -1,4 +1,4 @@
-//META{"name":"AntiDox","description":"Hides personal information on Discord. Will display elements when you hover over/click them, so beware. DM me if you need any assistance (Dante#3456) and check the Github source for updates or other projects.","author":"Dante","version":"1.2.0","source":"https://github.com/cdantetho/DiscordTools"}*//{}
+//META{"name":"AntiDox","description":"Hides personal information on Discord. Will display elements when you hover over/click them, so beware. DM me if you need any assistance (Dante#3456) and check the Github source for updates or other projects.","author":"Dante","version":"1.3.0","source":"https://github.com/cdantetho/DiscordTools"}*//{}
 
 /*###################################################################################################
 This theme was developed by Dante (@Dante#3456) with the goal of helping users NOT dox themselves whenever they open their settings while screensharing.
@@ -11,13 +11,13 @@ Enjoy!
 
 
 /* Blur account email */
-.children-rWhLdy .background-1QDuV2 .fieldList-21DyL8 .field-1HUseB .fieldSpacer-wgewFh {
+.contentColumnDefault-1VQkGM .background-1QDuV2 .fieldList-21DyL8 {
     filter: blur(5px);
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
 
 /* Show account email onhover */
-.children-rWhLdy .background-1QDuV2 .fieldList-21DyL8 .field-1HUseB .fieldSpacer-wgewFh {
+.contentColumnDefault-1VQkGM .background-1QDuV2 .fieldList-21DyL8:hover {
     filter: none;
     transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
@@ -25,13 +25,13 @@ Enjoy!
 
 
 /* Blur 2FA Phone Number Preview (last 4 of your phone # is shown if you have 2FA enabled). */
-.userSettingsSecurity-3IYeMF .children-rWhLdy > div:nth-child(2){
+.userSettingsSecurity-3IYeMF .children-rWhLdy .children-rWhLdy > div:nth-child(2){
     filter: blur(5px);
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
 
 /* Show the 2FA Phone Number Preview when you hover over it. */
-.userSettingsSecurity-3IYeMF .children-rWhLdy > div:nth-child(2):hover{
+.userSettingsSecurity-3IYeMF .children-rWhLdy .children-rWhLdy > div:nth-child(2):hover{
     filter: none;
     transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
@@ -39,13 +39,69 @@ Enjoy!
 
 
 /* Blurs user profile notes */
-.note-QfFU8y textarea {
+.note-3HfJZ5 textarea {
     filter: blur(5px);
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
 }
 
 /* Shows user profile notes onhover */
+.note-3HfJZ5 textarea:focus {
+    filter: none;
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+
+
+/* Blurs user profile modal notes */
+.note-QfFU8y textarea {
+    filter: blur(5px);
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+/* Shows user profile modal notes onhover */
 .note-QfFU8y textarea:focus {
     filter: none;
     transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+
+
+/* Blur Subscriptions Email/Method */
+.contentColumnDefault-1VQkGM .subscriptionDetails-1dUmjl .detailsBlock-FoDTGA .dropdown-2fxkrS {
+    filter: blur(5px);
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+/* Show Subscriptions Email/Method onhover */
+.contentColumnDefault-1VQkGM .subscriptionDetails-1dUmjl .detailsBlock-FoDTGA .dropdown-2fxkrS:hover {
+    filter: none;
+    transition: 500ms cubic-bezier(.2, .11, 0, 1);
+}
+
+
+
+/* Blur Gift Inventory Codes */
+.contentColumnDefault-1VQkGM .children-rWhLdy .children-rWhLdy .card-7JP0BX .promotionCardDescriptionWithCode-3YtJQp {
+    filter: blur(5px);
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+/* Blur Gift Inventory Codes */
+.contentColumnDefault-1VQkGM .children-rWhLdy .children-rWhLdy .card-7JP0BX .promotionCardDescriptionWithCode-3YtJQp:hover {
+    filter: none;
+    transition: 500ms cubic-bezier(.2, .11, 0, 1);
+}
+
+
+
+/* Blur Payment Methods */
+.contentColumnDefault-1VQkGM .paymentSourceRow-3FbcL_ {
+    filter: blur(5px);
+    transition: 200ms cubic-bezier(.2, .11, 0, 1);
+}
+
+/* Blur Payment Methods */
+.contentColumnDefault-1VQkGM .paymentSourceRow-3FbcL_:hover {
+    filter: none;
+    transition: 500ms cubic-bezier(.2, .11, 0, 1);
 }
